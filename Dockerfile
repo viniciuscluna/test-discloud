@@ -29,5 +29,5 @@ COPY --from=builder /myapp /myapp
 # Expose the port your application listens on (optional, if a web app)
 EXPOSE 8080
 
-# Command to run the executable when the container starts
+# Command to run the executable when the container starts2
 CMD ["/myapp"]
