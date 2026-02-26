@@ -1,6 +1,6 @@
 # Stage 1: Builder
 # Use the official Golang image for building
-FROM golang:latest AS builder
+FROM docker.io/golang:latest AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
