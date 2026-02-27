@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -26,14 +25,7 @@ func (carMigration) TableName() string {
 }
 
 func main() {
-	dsn := fmt.Sprintf(
-		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		getEnv("DB_HOST", "localhost"),
-		getEnv("DB_PORT", "5432"),
-		getEnv("DB_USER", "postgres"),
-		getEnv("DB_PASSWORD", "postgres"),
-		getEnv("DB_NAME", "testdb"),
-	)
+	dsn := os.Getenv("DATABASE_URL")
 
 	db, err := gorm.Open(pgdriver.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -57,11 +49,4 @@ func main() {
 	handler.RegisterRoutes(app)
 
 	log.Fatal(app.Listen(":8080"))
-}
-
-func getEnv(key, fallback string) string {
-	if v := os.Getenv(key); v != "" {
-		return v
-	}
-	return fallback
 }

@@ -1,0 +1,59 @@
+### Car CRUD - REST Client Examples
+### Base URL
+@baseUrl = https://test2.viniciuscluna.com.br
+
+###
+# @name ListAll
+# List all cars
+GET {{baseUrl}}/cars
+Accept: application/json
+
+###
+# @name GetById
+# Get car by ID
+GET {{baseUrl}}/cars/1
+Accept: application/json
+
+###
+# @name Create
+# Create a new car
+POST {{baseUrl}}/cars
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Corolla",
+  "year": 2022,
+  "color": "Branco"
+}
+
+###
+# @name CreateAnother
+# Create another car
+POST {{baseUrl}}/cars
+Content-Type: application/json
+
+{
+  "brand": "Honda",
+  "model": "Civic",
+  "year": 2023,
+  "color": "Preto"
+}
+
+###
+# @name Update
+# Update car by ID
+PUT {{baseUrl}}/cars/1
+Content-Type: application/json
+
+{
+  "brand": "Toyota",
+  "model": "Corolla Cross",
+  "year": 2024,
+  "color": "Prata"
+}
+
+###
+# @name Delete
+# Delete car by ID
+DELETE {{baseUrl}}/cars/1
